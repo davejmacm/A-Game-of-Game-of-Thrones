@@ -54,41 +54,52 @@ def save()
  def self.all()
    sql = "SELECT * FROM #{VARa}"
    d = SqlRunner.run(sql)
-   return d.map {|ticket| Ticket.new (d)}
+   return d.map {|character| Character.new (d)}
  end
 
  def update()
    sql = "UPDATE #{VARa}
    SET(
-     #{VARb}, #{VARc}
+     #{VARb}, #{VARc}, #{VARe}, #{VARf}, #{VARg}
      )
      =
-     ($1, $2)
-     WHERE id = $3"
-     values = [@param_1, @param_2, @id]
+     ($1, $2, $3, $4, $5)
+     WHERE id = $6"
+     values = [@param_1, @param_2, @param_3, @param_4, @param_5, @id]
      SqlRunner.run(sql, values)
  end
 
  # end of crud functionality; below is lookup methods
 
-def cost()
-  sql = "UPDATE customers
-  SET funds = (SELECT customers.funds - films.price
-        FROM customers
-        INNER JOIN tickets
-          ON tickets.customer_id = customers.id
-        INNER JOIN films
-          ON tickets.film_id = films.id
-		WHERE tickets.id = $1)
-    WHERE customers.id = $2
-    RETURNING funds"
-    values = [@id, @param_1]
-    result = SqlRunner.run(sql, values)
-    return result[0]['funds'].to_f
+ def team()
+   sql = "SELECT team_name
+         FROM teams
+
+         WHERE id = $1"
+   values = [@param_5]
+   team = SqlRunner.run(sql, values)
+   return team.map{|team| Team.new(team)}
+ end
+
+
+# def cost()
+#   sql = "UPDATE customers
+#   SET funds = (SELECT customers.funds - films.price
+#         FROM customers
+#         INNER JOIN tickets
+#           ON tickets.customer_id = customers.id
+#         INNER JOIN films
+#           ON tickets.film_id = films.id
+# 		WHERE tickets.id = $1)
+#     WHERE customers.id = $2
+#     RETURNING funds"
+#     values = [@id, @param_1]
+#     result = SqlRunner.run(sql, values)
+#     return result[0]['funds'].to_f
 
 
 
-end
+# end
 
 
 

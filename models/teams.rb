@@ -45,7 +45,7 @@ def save()
  def self.all()
    sql = "SELECT * FROM #{VARa}"
    d = SqlRunner.run(sql)
-   return d.map {|ticket| Ticket.new (d)}
+   return d.map {|team| Team.new (d)}
  end
 
  def update()
@@ -62,25 +62,14 @@ def save()
 
  # end of crud functionality; below is lookup methods
 
-def cost()
-  sql = "UPDATE customers
-  SET funds = (SELECT customers.funds - films.price
-        FROM customers
-        INNER JOIN tickets
-          ON tickets.customer_id = customers.id
-        INNER JOIN films
-          ON tickets.film_id = films.id
-		WHERE tickets.id = $1)
-    WHERE customers.id = $2
-    RETURNING funds"
-    values = [@id, @param_1]
-    result = SqlRunner.run(sql, values)
-    return result[0]['funds'].to_f
+ def team()
+   sql = "SELECT name
+         FROM characters
 
-
-
-end
-
-
+         WHERE team_id = $1"
+   values = [@id]
+   character = SqlRunner.run(sql, values)
+   return  character.map{|character| Character.new(character)}
+ end
 
 end

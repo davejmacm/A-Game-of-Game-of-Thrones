@@ -36,5 +36,14 @@ character2 = Character.new ({
   "team_id" => team2.id
   })
 
+character3 = Character.new ({
+  "name" => "The Night's King",
+  "bio" => "Terrifying leader of the White Walkers.",
+  "pic_url" => "https://s2.r29static.com//bin/entry/982/720x864,80/1796850/image.jpg",
+  "score" => "5",
+  "team_id" => team1.id
+  })
+
   character1.save()
   character2.save()
+  character3.save()
