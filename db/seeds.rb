@@ -49,5 +49,11 @@ character3 = Character.new ({
   character2.save()
   character3.save()
 
-  binding.pry
-  nil
+
+# tests that the methods below work
+p character1.team()
+
+p team1.characters()
+
+   binding.pry
+   nil

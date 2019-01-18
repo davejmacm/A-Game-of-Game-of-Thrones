@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+# require_relative('../characters')
 
 class Team
 
@@ -7,8 +8,8 @@ class Team
 
  def initialize(options)
    @id = options['id'].to_i if options['id']
-   @param_1 = options['owner']
-   @param_2 = options['team_name']
+   @owner = options['owner']
+   @team_name = options['team_name']
  end
 
 
@@ -25,7 +26,7 @@ def save()
          )
          VALUES ($1, $2)
          RETURNING id"
-  values = [@param_1, @param_2]
+  values = [@owner, @team_name]
   d = SqlRunner.run(sql, values).first
   @id = d ['id'].to_i
  end
@@ -43,9 +44,9 @@ def save()
  end
 # ==========================
  def self.all()
-   sql = "SELECT * FROM #{VARa}"
-   d = SqlRunner.run(sql)
-   return d.map {|team| Team.new (d)}
+   sql = "SELECT * FROM teams"
+   teams = SqlRunner.run(sql)
+   return teams.map {|team| Team.new (team)}
  end
 
  def update()
@@ -56,12 +57,14 @@ def save()
      =
      ($1, $2)
      WHERE id = $3"
-     values = [@param_1, @param_2, @id]
+     values = [@owner, @team_name, @id]
      SqlRunner.run(sql, values)
  end
 
  # end of crud functionality; below is lookup methods
 
+
+# this method will return all characters assigned to a particular team
  def characters()
    sql = "SELECT name
          FROM characters
@@ -71,5 +74,30 @@ def save()
    characters = SqlRunner.run(sql, values)
    return  characters.map{|character| Character.new(character)}
  end
+
+ # this method will return the SUMMED value of score for all characters on that particular teams
+
+ def score()
+   sql = "SELECT SUM(score)
+          FROM characters
+          WHERE team_id = $1"
+   values = [@id]
+   score = SqlRunner.run(sql,values)
+   return score[0]
+ end
+
+   # sql = "UPDATE customers
+   # SET funds = (SELECT customers.funds - films.price
+   #       FROM customers
+   #       INNER JOIN tickets
+   #         ON tickets.customer_id = customers.id
+   #       INNER JOIN films
+   #         ON tickets.film_id = films.id
+ 		# WHERE tickets.id = $1)
+   #   WHERE customers.id = $2
+   #   RETURNING funds"
+   #   values = [@id, @owner]
+   #   result = SqlRunner.run(sql, values)
+   #   return result[0]['funds'].to_f
 
 end

@@ -71,6 +71,7 @@ def save()
 
  # end of crud functionality; below is lookup methods
 
+# this method will return the team the character is part of
  def team()
    sql = "SELECT team_name
          FROM teams
