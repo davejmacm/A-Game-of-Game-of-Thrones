@@ -55,5 +55,7 @@ p character1.team()
 
 p team1.characters()
 
+p team1.score()
+
    binding.pry
    nil

@@ -10,7 +10,7 @@ end
 
 get '/teams' do
   @teams = Team.all()
-  # @scores = @id.score()
+  # @team_score = team(params).score()
   erb(:teams)
 end
 

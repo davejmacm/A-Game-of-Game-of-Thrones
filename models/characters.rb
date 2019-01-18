@@ -7,11 +7,11 @@ class Character
 
  def initialize(options)
    @id = options['id'].to_i if options['id']
-   @param_1 = options['name']
-   @param_2 = options['bio']
-   @param_3 = options['pic_url']
-   @param_4 = options['score'].to_i
-   @param_5 = options['team_id'].to_i
+   @name = options['name']
+   @bio = options['bio']
+   @pic_url = options['pic_url']
+   @score = options['score'].to_i
+   @team_id = options['team_id'].to_i
  end
 
 
@@ -34,7 +34,7 @@ def save()
          )
          VALUES ($1, $2, $3, $4, $5)
          RETURNING id"
-  values = [@param_1, @param_2, @param_3, @param_4, @param_5]
+  values = [@name, @bio, @pic_url, @score, @team_id]
   d = SqlRunner.run(sql, values).first
   @id = d ['id'].to_i
  end
@@ -65,7 +65,7 @@ def save()
      =
      ($1, $2, $3, $4, $5)
      WHERE id = $6"
-     values = [@param_1, @param_2, @param_3, @param_4, @param_5, @id]
+     values = [@name, @bio, @pic_url, @score, @team_id, @id]
      SqlRunner.run(sql, values)
  end
 
@@ -77,7 +77,7 @@ def save()
          FROM teams
 
          WHERE id = $1"
-   values = [@param_5]
+   values = [@team_id]
    team = SqlRunner.run(sql, values)
    return team.map{|team| Team.new(team)}
  end
@@ -94,7 +94,7 @@ def save()
 # 		WHERE tickets.id = $1)
 #     WHERE customers.id = $2
 #     RETURNING funds"
-#     values = [@id, @param_1]
+#     values = [@id, @name]
 #     result = SqlRunner.run(sql, values)
 #     return result[0]['funds'].to_f
 

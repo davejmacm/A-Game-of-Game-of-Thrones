@@ -83,7 +83,7 @@ def save()
           WHERE team_id = $1"
    values = [@id]
    score = SqlRunner.run(sql,values)
-   return score[0]
+   return score[0]['sum']
  end
 
    # sql = "UPDATE customers
