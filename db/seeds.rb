@@ -1,3 +1,4 @@
+require('pry')
 require_relative('../models/characters')
 require_relative('../models/teams')
 
@@ -47,3 +48,6 @@ character3 = Character.new ({
   character1.save()
   character2.save()
   character3.save()
+
+  binding.pry
+  nil

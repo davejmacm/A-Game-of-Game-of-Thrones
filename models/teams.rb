@@ -62,14 +62,14 @@ def save()
 
  # end of crud functionality; below is lookup methods
 
- def team()
+ def characters()
    sql = "SELECT name
          FROM characters
 
          WHERE team_id = $1"
    values = [@id]
-   character = SqlRunner.run(sql, values)
-   return  character.map{|character| Character.new(character)}
+   characters = SqlRunner.run(sql, values)
+   return  characters.map{|character| Character.new(character)}
  end
 
 end
