@@ -49,6 +49,16 @@ def save()
    return teams.map {|team| Team.new (team)}
  end
 
+ def self.all_by_score()
+   sql = "SELECT teams.*
+          FROM teams, characters
+          WHERE characters.team_id = teams.id
+          GROUP BY teams.id
+          ORDER BY SUM(characters.score) DESC"
+   teams = SqlRunner.run(sql)
+   return teams.map {|team| Team.new (team)}
+ end
+
  def self.find( id )
   sql = "SELECT * FROM teams WHERE id = $1"
   values = [id]

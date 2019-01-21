@@ -6,13 +6,13 @@ also_reload('./models/*')
 
 # User routes (limited RESTful routes)
 get '/' do
-  @teams = Team.all()
+  @teams = Team.all_by_score()
 
  erb(:home)
 end
 
 get '/teams' do
-  @teams = Team.all()
+  @teams = Team.all_by_score()
 
   erb(:"user/teams")
 end
@@ -71,7 +71,7 @@ end
 # TEAMS
 # INDEX
 get '/admin-teams' do
-  @teams = Team.all()
+  @teams = Team.all_by_score()
 
   erb :"admin-teams/index", :layout => :admin_layout
 end

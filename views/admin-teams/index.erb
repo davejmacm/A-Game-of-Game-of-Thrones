@@ -1,10 +1,23 @@
 <h1>Team standings</h1>
 
 
-  <% @teams.each do |team| %>
-    <p> Name: <a href="/admin-teams/<%= team.id %>"> <%= team.team_name %> </a> </p>
-    <p> Owner: <%=team.owner%> </p>
 
-    <p> Score: <%= team.score %> </p>
-  <p>--------------------</p>
-  <% end %>
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Owner</th>
+      <th>Score</th>
+    </tr>
+  <% counter = 1 %>
+    <% for team in @teams %>
+      <tr>
+        <td><%= counter %></td>
+        <td><a href="/admin-teams/<%= team.id %>"> <%=team.team_name%></td>
+        <td><%=team.owner%></td>
+        <td><%=team.score%></td>
+      </tr>
+    <%counter = counter+1%>
+    <%end%>
+
+  </table>

@@ -9,10 +9,10 @@
       <th>Owner</th>
       <th>Score</th>
     </tr>
-  <%counter = 1 %>
-    <%for team in @teams%>
+  <% counter = 1 %>
+    <% for team in @teams %>
       <tr>
-        <td><%= counter%></td>
+        <td><%= counter %></td>
         <td><a href="/teams/<%= team.id %>"> <%=team.team_name%></td>
         <td><%=team.owner%></td>
         <td><%=team.score%></td>
