@@ -53,8 +53,8 @@ def save()
 # ==================================
  def self.all()
    sql = "SELECT * FROM #{VARa}"
-   d = SqlRunner.run(sql)
-   return d.map {|character| Character.new (d)}
+   characters = SqlRunner.run(sql)
+   return characters.map {|character| Character.new (character)}
  end
 
  def update()
