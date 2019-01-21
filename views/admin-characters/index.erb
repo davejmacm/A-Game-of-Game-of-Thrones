@@ -1,0 +1,11 @@
+<h1>Chracter List</h1>
+
+
+  <% @teams.each do |team| %>
+  <p>insert character pic here</p>
+    <p> Name: <a href="/characters/<%= character.id %>"> <%= character.name %> </a> </p>
+    <p> About: <%=character.bio%> </p>
+
+    <p> Score: <%= character.score %> </p>
+  <p>--------------------</p>
+  <% end %>

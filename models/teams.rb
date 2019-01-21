@@ -49,6 +49,14 @@ def save()
    return teams.map {|team| Team.new (team)}
  end
 
+ def self.find( id )
+  sql = "SELECT * FROM teams WHERE id = $1"
+  values = [id]
+  team = SqlRunner.run( sql, values )
+  result = Team.new( team.first )
+  return result
+end
+
  def update()
    sql = "UPDATE #{VARa}
    SET(
