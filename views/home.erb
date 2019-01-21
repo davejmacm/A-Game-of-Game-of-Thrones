@@ -1,9 +1,9 @@
-<h1>This is the homepage - under construction</h1>
+<h1>Welcome to a Game of Game of Thones</h1>
+<h4>"You win or you die"</h4>
+<h3> <a href="/teams"> Team standings</a></h3>
 
-<h3>Team standings</h3>
 
-
-  <table>
+  <table class="standings">
     <tr>
       <th>Rank</th>
       <th>Name</th>
@@ -13,7 +13,7 @@
     <%for team in @teams%>
       <tr>
         <td><%= counter%></td>
-        <td><a href="/teams/<%= team.id %>"> <%=team.team_name%></td>
+        <td><%=team.team_name%></td>
         <td><%=team.score%></td>
       </tr>
     <%counter = counter+1%>

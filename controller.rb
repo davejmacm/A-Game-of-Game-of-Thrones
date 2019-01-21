@@ -68,7 +68,7 @@ end
 
 get'/admin' do
 
-  erb(:admin_home)
+  erb :admin_home, :layout => :admin_layout
 end
 
 # TEAMS

@@ -2,16 +2,34 @@
 <html>
 <head>
  <title>A Game of Game of Thrones</title>
-</head>
-<body>
- <nav>
-   <ul>
-     <li><a href="/teams">League</a> </li>
-     <li><a href="/characters">Characters</a> </li>
-     <li><a href="/scoring">Scoring</a> </li>
+ <link rel="icon" href="/images/throne.jpg" />
 
-   </ul>
- </nav>
+ <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+  <link rel="stylesheet" type="text/css" href="/styles/tables.css">
+
+<style>
+@font-face {
+  font-family: GameOfThrones;
+  src: url(images/GameofThrones.ttf);
+}
+a{  color: white;}
+</style>
+
+</head>
+<header>
+  <nav class = "navbar">
+    <ul>
+      <li><a href="/">Home</a> </li>
+      <li><a href="/teams">League</a> </li>
+      <li><a href="/characters">Characters</a> </li>
+      <li><a href="/scoring">Scoring</a> </li>
+
+    </ul>
+  </nav>
+</header>
+
+<body>
+
  <%= yield %>
 </body>
 </html>

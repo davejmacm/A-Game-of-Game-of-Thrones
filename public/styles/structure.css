@@ -1,0 +1,52 @@
+body{
+  font-family: GameOfThrones, fantasy, sans-serif;
+  color: white;
+  background-image: url('/images/map.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+a:hover {
+  color: #af111c;
+}
+h1 {
+  justify-content: center;
+}
+
+h4 {
+  align-text: centre;
+}
+
+p {
+  font-size: 12px
+}
+
+/* NAV BAR */
+
+.navbar > ul{
+  display: flex;
+  justify-content: space-around;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 5px;
+  border-bottom: 1px solid #eeedf2;
+  margin-bottom: 10px;
+}
+
+
+/* positioning of standings tables  */
+.standings {
+  display: flex;
+  justify-content: center;
+  line-height: 2.5rem;
+
+}
+
+/* scoring text */
+
+.scoring {
+  display: grid;
+  justify-content: center;
+  background: rgba(0,0,0,0.65);
+  padding: -2rem;
+  border: -2rem;
+}
