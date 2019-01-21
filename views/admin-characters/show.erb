@@ -1,0 +1,16 @@
+<h1><%= @character_show.name %></h1>
+
+
+  <img src="<%= @character_show.pic_url %>" alt="">
+  <p> Bio: <%= @character_show.bio %> </p>
+  <p> Score: <%= @character_show.score %> </p>
+
+
+<form action="/admin-characters/<%= @character_show.id %>/edit" method="get">
+  <!-- <input type="hidden" name="_method" value=""> -->
+  <input type="submit" value="Edit Character">
+</form>
+<form action="/admin-characters/<%= @character_show.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Character">
+</form>

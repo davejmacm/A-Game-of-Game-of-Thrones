@@ -57,6 +57,14 @@ def save()
    return characters.map {|character| Character.new (character)}
  end
 
+ def self.find( id )
+  sql = "SELECT * FROM characters WHERE id = $1"
+  values = [id]
+  character = SqlRunner.run( sql, values )
+  result = Character.new( character.first )
+  return result
+ end
+
  def update()
    sql = "UPDATE #{VARa}
    SET(

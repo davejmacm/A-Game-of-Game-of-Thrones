@@ -46,7 +46,7 @@ post '/admin-teams' do
 end
 #SHOW
 get '/admin-teams/:id' do
-  #Retrieve one pizza order from the db
+  #Retrieve one team from the db
   @team_show = Team.find(params[:id])
   # Display the details of that order
   erb :"admin-teams/show", :layout => :admin_layout
@@ -86,31 +86,32 @@ get '/admin-characters' do
 end
 # NEW
 get '/admin-characters/new' do
-
+@teams = Team.all()
   erb :"admin-characters/new", :layout => :admin_layout
 end
 
-# #CREATE
-# post '/admin-teams' do
-#   # Create a new Teams object
-#   Team.new( params ).save
-#   # Save to the db
-#   # Redirect the browser to the list of teams
-#   redirect to './admin-teams'
-# end
-# #SHOW
-# get '/admin-teams/:id' do
-#   #Retrieve one pizza order from the db
-#   @team_show = Team.find(params[:id])
-#   # Display the details of that order
-#   erb :"admin-teams/show", :layout => :admin_layout
-# end
-# #EDIT
-# get '/admin-teams/:id/edit' do
-#   # show existing data from db in form - editable
-# @team_show = Team.find(params[:id])
-#   erb :"admin-teams/edit", :layout => :admin_layout
-# end
+#CREATE
+post '/admin-characters' do
+  # Create a new Character object
+  Character.new( params ).save
+  # Save to the db
+  # Redirect the browser to the list of characters
+  redirect to './admin-characters'
+end
+#SHOW
+get '/admin-characters/:id' do
+  #Retrieve one Character from the db
+  @character_show = Character.find(params[:id])
+  # Display the details of that order
+  erb :"admin-characters/show", :layout => :admin_layout
+end
+#EDIT
+get '/admin-characters/:id/edit' do
+  # show existing data from db in form - editable
+@character_show = Character.find(params[:id])
+@teams = Team.all()
+  erb :"admin-characters/edit", :layout => :admin_layout
+end
 # #UPDATE
 # put '/admin-teams/:id' do
 #   # Create a new Team object

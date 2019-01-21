@@ -1,0 +1,33 @@
+<h1>Edit <%=@character_show.name%></h1>
+
+<form action="/admin-characters/<%= @character_show.id %>" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="team-name" name="team_name" value="<%= @character_show.name %>">
+
+  <label for="character-bio">Bio:</label>
+  <input type="text" id="character-bio" name="bio" value="<%= @character_show.bio %>">
+
+  <label for="character-pic">Picture link:</label>
+  <input type="text" id="character-pic" name="pic_url" value=" <%= @character_show.pic_url %>">
+
+  <label for="character-score">Score:</label>
+  <input type="text" id="character-score" name="score" value=" <%= @character_show.score %>">
+
+  <label for="team-select">Team:</label>
+    <select id= "team-select" name="team_id">
+    <% @teams.each do |team| %>
+      <% if team.id == @character_show.team_id %>
+      <option value=<%= team.id %> selected><%= team.team_name %></option>
+      <% else %>
+      <option value=<%= team.id %> ><%= team.team_name %></option>
+      <% end %>
+    <% end %>
+
+    </select>
+
+
+
+
+<input type="submit" value="Update Team">
+  <input type="hidden" name="_method" value="put">
+</form>

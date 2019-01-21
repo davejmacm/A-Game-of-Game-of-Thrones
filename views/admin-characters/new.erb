@@ -1,4 +1,4 @@
-<h1>Add New Team</h1>
+<h1>Add New Character</h1>
 
 <form action="/admin-characters" method="post">
  <label for="character-name">Name:</label>
@@ -13,6 +13,13 @@
  <label for="character-score">Score:</label>
  <input type="text" id="character-score" name="score" placeholder="Characters's score" value="">
 
+ <label for="team-select">Team:</label>
+   <select id= "team-select" name="team_id">
+     <% @teams.each do |team| %>
+      <option value=<%= team.id %> ><%= team.team_name %></option>
+      <% end %>
+
+   </select>
 
 <input type="submit" value="Create Character">
  </form>

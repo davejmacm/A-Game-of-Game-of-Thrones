@@ -3,7 +3,7 @@
 
   <% @characters.each do |character| %>
     <img src="<%= character.pic_url %>" alt="">
-    <p> Name: <a href="/characters/<%= character.id %>"> <%= character.name %> </a> </p>
+    <p> Name: <a href="/admin-characters/<%= character.id %>"> <%= character.name %> </a> </p>
     <p> Score: <%= character.score %> </p>
   <p>--------------------</p>
   <% end %>
