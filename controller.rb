@@ -112,21 +112,24 @@ get '/admin-characters/:id/edit' do
 @teams = Team.all()
   erb :"admin-characters/edit", :layout => :admin_layout
 end
-# #UPDATE
-# put '/admin-teams/:id' do
-#   # Create a new Team object
-#   edit_team = Team.find(params[:id])
-#   edit_team.team_name=(params[:team_name])
-#   edit_team.owner=(params[:owner])
-#   edit_team.update
-#   # Save to the db
-#   # Redirect the browser to 'teams list'
-#   redirect to '/admin-teams'
-# end
-# #DESTROY
-# delete '/admin-teams/:id' do
-#   # Retrieve the pizza order from db and delete it
-#   Team.find(params[:id]).delete
-#   # Redirect the browser to '/pizza-orders'
-#   redirect to '/admin-teams'
-# end
+#UPDATE
+put '/admin-characters/:id' do
+  # Create a new Character object
+  edit_character = Character.find(params[:id])
+  edit_character.name=(params[:name])
+  edit_character.bio=(params[:bio])
+  edit_character.pic_url=(params[:pic_url])
+  edit_character.score=(params[:score])
+  edit_character.team_id=(params[:team_id])
+  edit_character.update
+  # Save to the db
+  # Redirect the browser to 'character list'
+  redirect to '/admin-characters'
+end
+#DESTROY
+delete '/admin-characters/:id' do
+  # Retrieve the pizza order from db and delete it
+  Character.find(params[:id]).delete
+  # Redirect the browser to '/pizza-orders'
+  redirect to '/admin-characters'
+end

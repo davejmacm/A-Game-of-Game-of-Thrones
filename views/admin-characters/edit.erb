@@ -2,7 +2,7 @@
 
 <form action="/admin-characters/<%= @character_show.id %>" method="post">
   <label for="name">Name:</label>
-  <input type="text" id="team-name" name="team_name" value="<%= @character_show.name %>">
+  <input type="text" id="name" name="name" value="<%= @character_show.name %>">
 
   <label for="character-bio">Bio:</label>
   <input type="text" id="character-bio" name="bio" value="<%= @character_show.bio %>">
@@ -28,6 +28,6 @@
 
 
 
-<input type="submit" value="Update Team">
+<input type="submit" value="Update Character">
   <input type="hidden" name="_method" value="put">
 </form>
