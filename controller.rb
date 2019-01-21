@@ -4,15 +4,61 @@ require_relative('./models/characters')
 require_relative('./models/teams')
 also_reload('./models/*')
 
+# User routes (limited RESTful routes)
 get '/' do
+  @teams = Team.all()
+
  erb(:home)
 end
 
 get '/teams' do
   @teams = Team.all()
 
-  erb(:teams)
+  erb(:"user/teams")
 end
+
+get '/characters' do
+  @characters = Character.all()
+
+  erb(:"user/characters")
+end
+
+#SHOW ALL TEAMS
+get '/teams/:id' do
+  #Retrieve one team from the db
+  @team_show = Team.find(params[:id])
+  # Display the details of that order
+  erb :"user/show_team"
+end
+
+# Team update - team_name ONLY
+#EDIT
+get '/teams/:id/edit' do
+  # show existing data from db in form - editable
+@team_show = Team.find(params[:id])
+  erb :"user/team_edit"
+end
+#UPDATE
+put '/teams/:id' do
+  # Create a new Team object
+  edit_team = Team.find(params[:id])
+  edit_team.team_name=(params[:team_name])
+  edit_team.update
+  # Save to the db
+  # Redirect the browser to 'teams list'
+  redirect to '/teams'
+end
+
+#SHOW
+get '/characters/:id' do
+  #Retrieve one Character from the db
+  @character_show = Character.find(params[:id])
+  # Display the details of that order
+  erb :"user/show_character"
+end
+
+
+
 
 
 # admin flow (full rest) for both teams and characters

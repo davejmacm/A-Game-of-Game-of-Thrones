@@ -1,0 +1,11 @@
+<h1><%= @character_show.name %></h1>
+
+
+  <img src="<%= @character_show.pic_url %>" alt="">
+  <p> Bio: <%= @character_show.bio %> </p>
+  <p> Score: <%= @character_show.score %> </p>
+
+  <form action="/characters" method="get">
+    <!-- <input type="hidden" name="_method" value=""> -->
+    <input type="submit" value="Go Back to Characters">
+  </form>
