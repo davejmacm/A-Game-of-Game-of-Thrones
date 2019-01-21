@@ -1,0 +1,13 @@
+<h1>Edit <%=@team_show.owner%>'s Team</h1>
+
+<form action="/admin-teams/<%= @team_show.id %>" method="post">
+  <label for="team-name">Team name:</label>
+  <input type="text" id="team-name" name="team_name" value="<%= @team_show.team_name %>">
+
+  <label for="team-owner">Team Owner:</label>
+  <input type="text" id="team-owner" name="Owner" value="<%= @team_show.owner %>">
+
+
+<input type="submit" value="Update Team">
+  <input type="hidden" name="_method" value="put">
+</form>

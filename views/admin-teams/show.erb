@@ -1,0 +1,37 @@
+<h1><%= @team_show.owner%>'s Team</h1>
+
+
+
+    <h3> Name: <%= @team_show.team_name %>   </h3>
+
+
+
+
+<p>[Fix this]Team members:</p>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+  </tr>
+  <tr>
+    <%for character in @team_show.characters%>
+    <td><%=character.name%></td>
+    <%end%>
+    <td>Character.score</td>
+  </tr>
+
+</table>
+
+
+
+
+<form action="/admin-teams/<%= @team_show.id %>/edit" method="get">
+  <!-- <input type="hidden" name="_method" value=""> -->
+  <input type="submit" value="Edit Team">
+</form>
+<form action="/admin-teams/<%= @team_show.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Team">
+</form>

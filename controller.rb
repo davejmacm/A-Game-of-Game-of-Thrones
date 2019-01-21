@@ -44,21 +44,19 @@ post '/admin-teams' do
   # Redirect the browser to the list of teams
   redirect to './admin-teams'
 end
-# #SHOW
-# get '/admin-teams/:id' do
-#   #Retrieve one pizza order from the db
-#   @team_show = Team.find(params[:id])
-#   # Display the details of that order
-#   erb(:show)
-# end
-# #EDIT
-# get '/pizza-orders/:id/edit' do
-#   # show existing data from db in form - editable
-# @pizza_order = PizzaOrder.find(params[:id])
-#   erb(:edit)
-#   #
-#
-# end
+#SHOW
+get '/admin-teams/:id' do
+  #Retrieve one pizza order from the db
+  @team_show = Team.find(params[:id])
+  # Display the details of that order
+  erb :"admin-teams/show", :layout => :admin_layout
+end
+#EDIT
+get '/admin-teams/:id/edit' do
+  # show existing data from db in form - editable
+@team_show = Team.find(params[:id])
+  erb :"admin-teams/edit", :layout => :admin_layout
+end
 # #UPDATE
 # put '/pizza-orders/:id' do
 #   # Create a new pizzaOrder object
