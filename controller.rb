@@ -58,7 +58,10 @@ get '/characters/:id' do
 end
 
 
-
+# route to scoring page for users
+get '/scoring' do
+  erb :"user/scoring"
+end
 
 
 # admin flow (full rest) for both teams and characters
