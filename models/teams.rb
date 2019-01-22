@@ -84,7 +84,7 @@ end
 
 # this method will return all characters assigned to a particular team
  def characters()
-   sql = "SELECT name, score, pic_url
+   sql = "SELECT name, score, pic_url, id
          FROM characters
 
          WHERE team_id = $1"
