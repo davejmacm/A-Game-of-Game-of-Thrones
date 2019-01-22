@@ -1,6 +1,8 @@
 body{
   font-family: GameOfThrones, fantasy, sans-serif;
   color: white;
+  letter-spacing: 0.01em;
+  word-spacing: 0.1em;
   background-image: url('/images/map.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,8 +14,9 @@ h1 {
   justify-content: center;
 }
 
+
 h4 {
-  align-text: centre;
+  text-align: center;
 }
 
 p {
@@ -32,6 +35,27 @@ p {
   margin-bottom: 10px;
 }
 
+.home-wall {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: baseline;
+
+}
+.home-wall span {
+  background: rgba(0,0,0,0.5);
+}
+
+.home-heading {
+  text-align: : center;
+  line-height: 3rem;
+  padding-bottom: 1rem;
+}
+
+.home-content{
+  line-height: 2rem;
+  border: .5px solid #707070;
+}
 
 /* positioning of standings tables  */
 .standings {
@@ -46,7 +70,7 @@ p {
 .scoring {
   display: grid;
   justify-content: center;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.5);
   padding: -2rem;
   border: -2rem;
 }
