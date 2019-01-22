@@ -1,9 +1,23 @@
 <h1>Character List</h1>
 
+<section class="character-gallery">
+
+
+
 
   <% @characters.each do |character| %>
-    <img src="<%= character.pic_url %>" alt="">
-    <p> Name: <a href="/characters/<%= character.id %>"> <%= character.name %> </a> </p>
-    <p> Score: <%= character.score %> </p>
-  <p>--------------------</p>
+  <div class="character-card">
+    <img class="character-pic" src="<%= character.pic_url %>" alt="">
+    <div class="character-details">
+
+      <p> Name: <a href="/characters/<%= character.id %>"> <%= character.name %> </a> </p>
+      <p> Score: <%= character.score %> </p>
+      </div>
+    </div>
+  </div>
   <% end %>
+
+
+
+
+</div>
