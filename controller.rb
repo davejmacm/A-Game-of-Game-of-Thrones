@@ -56,8 +56,25 @@ get '/characters/:id' do
   # Display the details of that order
   erb :"user/show_character"
 end
-
-
+# ===================================================
+#EDIT
+get '/characters/:id/drop' do
+  # show existing data from db in form - editable
+@character_show = Character.find(params[:id])
+@teams = Team.all()
+  erb :"user/drop"
+end
+#UPDATE
+put '/characters/:id' do
+  # Create a new Character object
+  edit_character = Character.find(params[:id])
+  edit_character.team_id=0
+  edit_character.update
+  # Save to the db
+  # Redirect the browser to 'character list'
+  redirect to '/teams/:id'
+end
+# ========================================
 # route to scoring page for users
 get '/scoring' do
   erb :"user/scoring"

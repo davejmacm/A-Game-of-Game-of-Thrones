@@ -17,6 +17,7 @@
           <th></th>
           <th>Name</th>
           <th>Score</th>
+          <th>Manage</th>
         </tr>
 
         <%for character in @team_show.characters%>
@@ -24,6 +25,10 @@
           <td> <a href="/characters/<%= character.id %>" ><img class="pic-small" src="<%= character.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/></a></td>
           <td><%=character.name%></td>
           <td><%=character.score%></td>
+          <td> <form action="/characters/<%= character.id %>/drop" method="get">
+            <!-- <input type="hidden" name="_method" value=""> -->
+            <input type="submit" value="Drop Character">
+          </form> </td>
         </tr>
         <%end%>
 
