@@ -1,42 +1,48 @@
 <h1><%= @team_show.owner%>'s Team</h1>
 
-
+<section class="team-about">
+  <div class="team-display">
 
     <h3> Name: <%= @team_show.team_name %>   </h3>
 
 
+    <div class="team-members">
 
 
-<p>Team members:</p>
+      <p>Team members:</p>
 
 
-<table>
-  <tr>
-    <th>Rank</th>
-    <th>Name</th>
-    <th>Score</th>
-  </tr>
-<%counter = 1 %>
-  <%for character in @team_show.characters%>
-    <tr>
-      <td><%= counter%></td>
-      <td><%=character.name%></td>
-      <td><%=character.score%></td>
-    </tr>
-  <%counter = counter+1%>
-  <%end%>
+      <table>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
 
-</table>
+        <%for character in @team_show.characters%>
+        <tr>
+          <td> <a href="/characters/<%= character.id %>" ><img class="pic-small" src="<%= character.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/></a></td>
+          <td><%=character.name%></td>
+          <td><%=character.score%></td>
+        </tr>
+        <%end%>
 
+      </table>
 
 
+    </div>
 
-<form action="/teams/<%= @team_show.id %>/edit" method="get">
-  <!-- <input type="hidden" name="_method" value=""> -->
-  <input type="submit" value="Edit Team Name">
-</form>
+    <form action="/teams/<%= @team_show.id %>/edit" method="get">
+      <!-- <input type="hidden" name="_method" value=""> -->
+      <input type="submit" value="Edit Team Name">
+    </form>
 
-<form action="/teams" method="get">
-  <!-- <input type="hidden" name="_method" value=""> -->
-  <input type="submit" value="Go Back to Teams">
-</form>
+    <form action="/teams" method="get">
+      <!-- <input type="hidden" name="_method" value=""> -->
+      <input type="submit" value="Go Back to Teams">
+    </form>
+
+
+
+  </div>
+</section>

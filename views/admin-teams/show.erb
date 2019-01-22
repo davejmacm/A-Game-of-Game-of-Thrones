@@ -1,38 +1,45 @@
 <h1><%= @team_show.owner%>'s Team</h1>
 
-
+<section class="team-about">
+  <div class="team-display">
 
     <h3> Name: <%= @team_show.team_name %>   </h3>
 
 
+    <div class="team-members">
 
 
-<p>Team members:</p>
+      <p>Team members:</p>
 
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Score</th>
-  </tr>
+      <table>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
 
-  <%for character in @team_show.characters%>
-    <tr>
-      <td><%=character.name%></td>
-      <td><%=character.score%></td>
-    </tr>
-  <%end%>
+        <%for character in @team_show.characters%>
+        <tr>
+          <td> <a href="/characters/<%= character.id %>" ><img class="pic-small" src="<%= character.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/></a></td>
+          <td><%=character.name%></td>
+          <td><%=character.score%></td>
+        </tr>
+        <%end%>
 
-</table>
+      </table>
 
 
+    </div>
 
+    <form action="/admin-teams/<%= @team_show.id %>/edit" method="get">
+      <!-- <input type="hidden" name="_method" value=""> -->
+      <input type="submit" value="Edit Team">
+    </form>
+    <form action="/admin-teams/<%= @team_show.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Team">
+    </form>
 
-<form action="/admin-teams/<%= @team_show.id %>/edit" method="get">
-  <!-- <input type="hidden" name="_method" value=""> -->
-  <input type="submit" value="Edit Team">
-</form>
-<form action="/admin-teams/<%= @team_show.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Team">
-</form>
+  </div>
+</section>

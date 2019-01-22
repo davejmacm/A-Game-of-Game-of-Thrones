@@ -27,7 +27,7 @@ end
 get '/teams/:id' do
   #Retrieve one team from the db
   @team_show = Team.find(params[:id])
-  # Display the details of that order
+  # Display the details of that team
   erb :"user/show_team"
 end
 
