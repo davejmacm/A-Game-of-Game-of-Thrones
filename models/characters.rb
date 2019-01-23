@@ -90,6 +90,13 @@ def save()
    return team.map{|team| Team.new(team)}
  end
 
+def team_null ()
+  sql = "Update characters
+  SET team_id = NULL
+  WHERE id = $1"
+  values = [@id]
+  SqlRunner.run(sql, values)
+end
 
 # def cost()
 #   sql = "UPDATE customers

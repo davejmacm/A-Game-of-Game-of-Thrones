@@ -15,6 +15,7 @@
 
  <label for="team-select">Team:</label>
    <select id= "team-select" name="team_id">
+     <option value=<%= nil %> Free Agent</option>
      <% @teams.each do |team| %>
       <option value=<%= team.id %> ><%= team.team_name %></option>
       <% end %>

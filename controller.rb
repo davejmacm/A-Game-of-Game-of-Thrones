@@ -68,11 +68,13 @@ end
 put '/characters/:id' do
   # Create a new Character object
   edit_character = Character.find(params[:id])
-  edit_character.team_id=0
-  edit_character.update
+  team_id = edit_character.team_id
+  edit_character.team_null
+  # edit_character.team_id=nil
+  # edit_character.update
   # Save to the db
   # Redirect the browser to 'character list'
-  redirect to '/teams/:id'
+  redirect to "/teams/#{team_id}"
 end
 # ========================================
 # route to scoring page for users
