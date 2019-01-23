@@ -98,6 +98,15 @@ def team_null ()
   SqlRunner.run(sql, values)
 end
 
+
+def self.free_agent()
+  sql = "SELECT *
+FROM characters
+WHERE team_id IS NULL;"
+agent = SqlRunner.run(sql)
+return agent.map{|agent| Character.new(agent)}
+end
+
 # def cost()
 #   sql = "UPDATE customers
 #   SET funds = (SELECT customers.funds - films.price

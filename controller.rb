@@ -56,7 +56,7 @@ get '/characters/:id' do
   # Display the details of that order
   erb :"user/show_character"
 end
-# ===================================================
+
 #EDIT
 get '/characters/:id/drop' do
   # show existing data from db in form - editable
@@ -76,7 +76,40 @@ put '/characters/:id' do
   # Redirect the browser to 'character list'
   redirect to "/teams/#{team_id}"
 end
-# ========================================
+
+get '/free_agents' do
+  # get all characters NOT in a team
+  # characters = Character.all()
+@agents = Character.free_agent()
+  erb :"user/free_agents"
+end
+
+# =========================================
+#EDIT
+get '/characters/:id/add' do
+  # show existing data from db in form - editable
+@character_show = Character.find(params[:id])
+@teams = Team.all()
+  erb :"user/add"
+end
+#UPDATE
+put '/free_agents/:id' do
+  # Find team_id from dropdown
+  team_id = (params[:team_id])
+  # Find out if team has reached team limit
+  # [team_id.is_full?] and logic
+  # Create a new Character object
+  edit_character = Character.find(params[:id])
+
+  # Update character with team_id from dropdown
+  edit_character.team_id=(params[:team_id])
+  edit_character.update
+  # Save to the db
+  # Redirect the browser to 'team'
+  redirect to "/teams/#{team_id}"
+end
+# =====================================
+
 # route to scoring page for users
 get '/scoring' do
   erb :"user/scoring"

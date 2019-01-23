@@ -1,0 +1,41 @@
+<h3>Are you sure you want to add <%=@character_show.name%></h3>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Score</th>
+  </tr>
+
+
+  <tr>
+    <td><img class="pic-small" src="<%= @character_show.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/></td>
+    <td><%=@character_show.name%></td>
+    <td><%=@character_show.score%></td>
+  </tr>
+
+
+</table>
+
+
+<form action="/free_agents/<%= @character_show.id %>" method="post">
+<label for="team-select">Your Team:</label>
+  <select id= "team-select" name="team_id">
+    <option value=<%= nil %> Free Agent</option>
+  <% @teams.each do |team| %>
+    <% if team.id == @character_show.team_id %>
+    <option value=<%= team.id %> selected><%= team.team_name %></option>
+    <% else %>
+    <option value=<%= team.id %> ><%= team.team_name %></option>
+    <% end %>
+  <% end %>
+
+
+  <input type="submit" value="Yes">
+    <input type="hidden" name="_method" value="put">
+  </form>
+
+  <form action="/free_agents" method="get">
+    <!-- <input type="hidden" name="_method" value=""> -->
+    <input type="submit" value="No">
+  </form>

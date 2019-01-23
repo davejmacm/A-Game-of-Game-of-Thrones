@@ -1,0 +1,24 @@
+<h1>Free Agents</h1>
+<p>Under construction; will show a list of characters not in a team</p>
+
+
+<section class="character-gallery">
+
+  <% @agents.each do |agent| %>
+  <div class="character-card">
+    <img class="character-pic" src="<%= agent.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/>
+    <div class="character-details">
+
+      <p> Name: <a href="/characters/<%= agent.id %>"> <%= agent.name %> </a> </p>
+      <p> Score: <%= agent.score %> </p>
+      <form action="/characters/<%= agent.id %>/add" method="get">
+        <!-- <input type="hidden" name="_method" value=""> -->
+        <input type="submit" value="Add Character">
+      </form>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+</div>

@@ -104,6 +104,25 @@ end
    return score[0]['sum']
  end
 
+
+def team_count
+  sql = "SELECT COUNT(*) AS team_count
+        FROM characters
+        WHERE team_id = $1"
+  values = [@id]
+  count = SqlRunner.run(sql, values)
+  return count[0]['sum']
+end
+
+def is_full?
+  if team_count >= 6
+    return true
+  else
+    return false
+  end
+end
+
+
    # sql = "UPDATE customers
    # SET funds = (SELECT customers.funds - films.price
    #       FROM customers
