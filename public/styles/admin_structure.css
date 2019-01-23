@@ -45,14 +45,21 @@ p {
   justify-content: space-around;
 }
 
+.icon-anchor {
+
+  width: 20rem;
+  height: 15rem;
+
+}
+
 .icon-pic {
-  width: 100%;
+  width: 65%;
   height: 100%;
   border-radius: 5px 5px 0 0;
 }
 
 .icon-card {
-  width: 18rem;
+
   margin-bottom: 5px;
   display: flex;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.9);
@@ -60,20 +67,16 @@ p {
   border-radius: 5px;
 }
 
-.icon a {
-  width: 18rem
-
-}
-
 .icon-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,5);
 }
 
 .icon-details {
-  padding: 2px 16px;
+  /* width: 20% */
+  padding: 2px ;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 /* CHARACTERS PAGE */
