@@ -69,14 +69,14 @@ end
 
  def update()
    sql = "UPDATE #{VARa}
-   SET(
-     #{VARb}, #{VARc}
-     )
-     =
-     ($1, $2)
-     WHERE id = $3"
-     values = [@owner, @team_name, @id]
-     SqlRunner.run(sql, values)
+        SET(
+        #{VARb}, #{VARc}
+        )
+        =
+        ($1, $2)
+        WHERE id = $3"
+    values = [@owner, @team_name, @id]
+    SqlRunner.run(sql, values)
  end
 
  # end of crud functionality; below is lookup methods
@@ -123,6 +123,7 @@ def is_full?
 end
 
 
+   # could use something similar for keeping score/week
    # sql = "UPDATE customers
    # SET funds = (SELECT customers.funds - films.price
    #       FROM customers

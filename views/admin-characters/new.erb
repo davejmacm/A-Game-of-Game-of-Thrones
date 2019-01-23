@@ -1,26 +1,26 @@
 <h1>Add New Character</h1>
 
 <form action="/admin-characters" method="post">
- <label for="character-name">Name:</label>
- <input type="text" id="character-name" name="name" placeholder="Character name" value="">
+  <label for="character-name">Name:</label>
+  <input type="text" id="character-name" name="name" placeholder="Character name" value="">
 
- <label for="character-bio">Bio:</label>
- <input type="text" id="character-bio" name="bio" placeholder="Characters's bio" value="">
+  <label for="character-bio">Bio:</label>
+  <input type="text" id="character-bio" name="bio" placeholder="Characters's bio" value="">
 
- <label for="character-pic">Picture link:</label>
- <input type="text" id="character-pic" name="pic_url" placeholder="Characters's picture" value="">
+  <label for="character-pic">Picture link:</label>
+  <input type="text" id="character-pic" name="pic_url" placeholder="Characters's picture" value="">
 
- <label for="character-score">Score:</label>
- <input type="text" id="character-score" name="score" placeholder="Characters's score" value="">
+  <label for="character-score">Score:</label>
+  <input type="text" id="character-score" name="score" placeholder="Characters's score" value="">
 
- <label for="team-select">Team:</label>
-   <select id= "team-select" name="team_id">
-     <option value=<%= nil %>> Free Agent</option>
-     <% @teams.each do |team| %>
-      <option value=<%= team.id %> ><%= team.team_name %></option>
-      <% end %>
+  <label for="team-select">Team:</label>
+  <select id= "team-select" name="team_id">
+    <option value=<%= nil %>> Free Agent</option>
+    <% @teams.each do |team| %>
+    <option value=<%= team.id %> ><%= team.team_name %></option>
+    <% end %>
 
-   </select>
+  </select>
 
-<input type="submit" value="Create Character">
- </form>
+  <input type="submit" value="Create Character">
+</form>

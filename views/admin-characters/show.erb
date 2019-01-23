@@ -3,25 +3,25 @@
 <section class="character-about">
   <div class="character-display">
 
-  <img class="character-profile" src="<%= @character_show.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/>
-  <div class="character-bio">
+    <img class="character-profile" src="<%= @character_show.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/>
+    <div class="character-bio">
 
-  <p> Bio: <%= @character_show.bio %> </p>
-  <p> Score: <%= @character_show.score %> </p>
+      <p> Bio: <%= @character_show.bio %> </p>
+      <p> Score: <%= @character_show.score %> </p>
 
 
-<div class="character-button">
+      <div class="character-button">
 
-<form action="/admin-characters/<%= @character_show.id %>/edit" method="get">
-  <!-- <input type="hidden" name="_method" value=""> -->
-  <input type="submit" value="Edit Character">
-</form>
-<form action="/admin-characters/<%= @character_show.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Character">
-</form>
+        <form action="/admin-characters/<%= @character_show.id %>/edit" method="get">
+          <!-- <input type="hidden" name="_method" value=""> -->
+          <input type="submit" value="Edit Character">
+        </form>
+        <form action="/admin-characters/<%= @character_show.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Delete Character">
+        </form>
 
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>

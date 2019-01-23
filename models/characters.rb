@@ -106,12 +106,13 @@ end
 
 def self.free_agent()
   sql = "SELECT *
-FROM characters
-WHERE team_id IS NULL;"
+        FROM characters
+        WHERE team_id IS NULL;"
 agent = SqlRunner.run(sql)
 return agent.map{|agent| Character.new(agent)}
 end
 
+# could use something similar for keeping track of scores/week
 # def cost()
 #   sql = "UPDATE customers
 #   SET funds = (SELECT customers.funds - films.price

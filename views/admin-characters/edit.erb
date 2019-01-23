@@ -14,21 +14,21 @@
   <input type="text" id="character-score" name="score" value=" <%= @character_show.score %>">
 
   <label for="team-select">Team:</label>
-    <select id= "team-select" name="team_id">
-      <option value=<%= nil %>> Free Agent</option>
+  <select id= "team-select" name="team_id">
+    <option value=<%= nil %>> Free Agent</option>
     <% @teams.each do |team| %>
-      <% if team.id == @character_show.team_id %>
-      <option value=<%= team.id %> selected><%= team.team_name %></option>
-      <% else %>
-      <option value=<%= team.id %> ><%= team.team_name %></option>
-      <% end %>
+    <% if team.id == @character_show.team_id %>
+    <option value=<%= team.id %> selected><%= team.team_name %></option>
+    <% else %>
+    <option value=<%= team.id %> ><%= team.team_name %></option>
+    <% end %>
     <% end %>
 
-    </select>
+  </select>
 
 
 
 
-<input type="submit" value="Update Character">
+  <input type="submit" value="Update Character">
   <input type="hidden" name="_method" value="put">
 </form>

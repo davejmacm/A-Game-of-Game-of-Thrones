@@ -4,22 +4,22 @@
   <div class="character-display">
 
 
-  <img class="character-profile" src="<%= @character_show.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/>
+    <img class="character-profile" src="<%= @character_show.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/>
     <div class="character-bio">
 
 
-    <p> Bio: </p>
-    <p> <%= @character_show.bio %> </p>
-    <p> Score: <%= @character_show.score %> </p>
+      <p> Bio: </p>
+      <p> <%= @character_show.bio %> </p>
+      <p> Score: <%= @character_show.score %> </p>
 
-    <div class="character-button">
+      <div class="character-button">
 
-    <form action="/characters" method="get">
-    <!-- <input type="hidden" name="_method" value=""> -->
-      <input type="submit" value="Go Back to Characters">
-    </form>
+        <form action="/characters" method="get">
+          <!-- <input type="hidden" name="_method" value=""> -->
+          <input type="submit" value="Go Back to Characters">
+        </form>
+      </div>
     </div>
-</div>
 
-</div>
+  </div>
 </div>
