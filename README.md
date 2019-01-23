@@ -15,5 +15,5 @@ The development environment was achieved on Mac from homebrew:
 From a terminal prompt.
 
 
-##Author
+## Author
 David MacMurray
