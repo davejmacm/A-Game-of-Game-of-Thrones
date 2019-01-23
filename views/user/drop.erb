@@ -1,28 +1,40 @@
 <h3>Are you sure you want to drop <%=@character_show.name%></h3>
 
-<table>
-  <tr>
-    <th></th>
-    <th>Name</th>
-    <th>Score</th>
-  </tr>
+<section class="team-about">
+  <div class="team-display">
 
 
-  <tr>
-    <td><img class="pic-small" src="<%= @character_show.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/></td>
-    <td><%=@character_show.name%></td>
-    <td><%=@character_show.score%></td>
-  </tr>
+    <table>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
 
 
-</table>
+      <tr>
+        <td><img class="pic-small" src="<%= @character_show.pic_url %>" onerror="this.src='/images/2rqqg5.jpg';"/></td>
+        <td><%=@character_show.name%></td>
+        <td><%=@character_show.score%></td>
+      </tr>
 
-<form action="/characters/<%= @character_show.id %>" method="post">
-<input type="submit" value="Yes">
-  <input type="hidden" name="_method" value="put">
-</form>
 
-<form action="/teams/<%=@character_show.team_id%>" method="get">
-  <!-- <input type="hidden" name="_method" value=""> -->
-  <input type="submit" value="No">
-</form>
+    </table>
+
+
+    <div class="select-btn">
+
+
+      <form action="/characters/<%= @character_show.id %>" method="post">
+        <input type="submit" value="Yes">
+        <input type="hidden" name="_method" value="put">
+      </form>
+
+      <form action="/teams/<%=@character_show.team_id%>" method="get">
+        <!-- <input type="hidden" name="_method" value=""> -->
+        <input type="submit" value="No">
+      </form>
+
+    </div>
+  </div>
+</section>

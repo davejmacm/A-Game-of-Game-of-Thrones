@@ -84,7 +84,6 @@ get '/free_agents' do
   erb :"user/free_agents"
 end
 
-# =========================================
 #EDIT
 get '/characters/:id/add' do
   # show existing data from db in form - editable
@@ -95,20 +94,24 @@ end
 #UPDATE
 put '/free_agents/:id' do
   # Find team_id from dropdown
-  team_id = (params[:team_id])
+  team = Team.find(params[:team_id])
   # Find out if team has reached team limit
-  # [team_id.is_full?] and logic
+  redirect to "/team_full" if team.is_full?
   # Create a new Character object
   edit_character = Character.find(params[:id])
 
   # Update character with team_id from dropdown
-  edit_character.team_id=(params[:team_id])
+  edit_character.team_id = team.id
   edit_character.update
   # Save to the db
   # Redirect the browser to 'team'
-  redirect to "/teams/#{team_id}"
+  redirect to "/teams/#{team.id}"
 end
-# =====================================
+
+get '/team_full' do
+  erb :"user/team_full"
+end
+
 
 # route to scoring page for users
 get '/scoring' do
@@ -216,12 +219,12 @@ end
 #UPDATE
 put '/admin-characters/:id' do
   # Create a new Character object
-  edit_character = Character.find(params[:id])
-  edit_character.name=(params[:name])
-  edit_character.bio=(params[:bio])
-  edit_character.pic_url=(params[:pic_url])
-  edit_character.score=(params[:score])
-  edit_character.team_id=(params[:team_id])
+  edit_character = Character.new(params)
+  # edit_character.name=(params[:name])
+  # edit_character.bio=(params[:bio])
+  # edit_character.pic_url=(params[:pic_url])
+  # edit_character.score=(params[:score])
+  # edit_character.team_id=(params[:team_id])
   edit_character.update
   # Save to the db
   # Redirect the browser to 'character list'

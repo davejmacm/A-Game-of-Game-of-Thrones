@@ -1,10 +1,12 @@
 <h1>Character List</h1>
 
-<form action="/free_agents" method="get">
-  <!-- <input type="hidden" name="_method" value=""> -->
-  <input type="submit" value="Free Agents">
-</form>
+<div class="button">
+  <form action="/free_agents" method="get">
+    <!-- <input type="hidden" name="_method" value=""> -->
+    <input type="submit" value="Free Agents">
+  </form>
 
+</div>
 
 <section class="character-gallery">
 
@@ -15,10 +17,10 @@
 
       <p> Name: <a href="/characters/<%= character.id %>"> <%= character.name %> </a> </p>
       <p> Score: <%= character.score %> </p>
-      </div>
     </div>
   </div>
-  <% end %>
+</div>
+<% end %>
 
 
 </div>

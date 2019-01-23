@@ -83,6 +83,14 @@ p {
 }
 
 /* CHARACTERS PAGE */
+.button {
+  display: flex;
+  justify-content: flex-end;
+  height:3rem;
+  padding-right: 3rem;
+}
+
+
 .character-gallery {
   display: flex;
   flex-flow: row wrap;
@@ -172,7 +180,7 @@ p {
 }
 
 .team-display {
-  width: 50rem;
+  width: 45rem;
   margin-bottom: 10px;
   display: grid;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.9);
@@ -185,4 +193,32 @@ p {
   padding: 2px 16px 2px 16px;
   display: grid;
   flex-flow: row wrap;
+}
+.gif-card {
+  width:28rem;
+  margin-bottom: 5px;
+  display: grid;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.9);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.gif{
+  width: 100%;
+  /* height: 100%; */
+  border-radius: 5px 5px 0 0;
+}
+
+.select-dd {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.select-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+  height: 2rem;
+  background: rgba(0,0,0,0.5);
 }

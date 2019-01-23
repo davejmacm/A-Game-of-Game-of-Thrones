@@ -11,7 +11,12 @@ class Character
    @bio = options['bio']
    @pic_url = options['pic_url']
    @score = options['score'].to_i
-   @team_id = options['team_id'].to_i
+   # @team_id = options['team_id'].to_i
+   if options['team_id'] == ""
+     @team_id = nil
+   else
+     @team_id = options['team_id'].to_i
+   end
  end
 
 

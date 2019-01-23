@@ -111,7 +111,7 @@ def team_count
         WHERE team_id = $1"
   values = [@id]
   count = SqlRunner.run(sql, values)
-  return count[0]['sum']
+  return count[0]['team_count'].to_i
 end
 
 def is_full?
