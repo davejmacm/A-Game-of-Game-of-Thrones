@@ -2,7 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/reloader' ) if development?
 require_relative('./models/characters')
 require_relative('./models/teams')
-also_reload('./models/*')
+# also_reload('./models/*')
 
 # User routes (limited RESTful routes)
 get '/' do

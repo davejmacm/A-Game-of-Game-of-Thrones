@@ -1,4 +1,4 @@
-require('pry')
+# require('pry')
 require_relative('../models/characters')
 require_relative('../models/teams')
 
@@ -57,5 +57,5 @@ p team1.characters()
 
 p team1.score()
 
-   binding.pry
-   nil
+   # binding.pry
+   # nil
