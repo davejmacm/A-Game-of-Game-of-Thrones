@@ -107,7 +107,8 @@ end
 def self.free_agent()
   sql = "SELECT *
         FROM characters
-        WHERE team_id IS NULL;"
+        WHERE team_id IS NULL
+        ORDER BY score DESC"
 agent = SqlRunner.run(sql)
 return agent.map{|agent| Character.new(agent)}
 end
