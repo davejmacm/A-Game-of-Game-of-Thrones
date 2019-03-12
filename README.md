@@ -31,3 +31,6 @@ The seeds.rd file populates the tables with characters & teams and runs method c
 
 ## Author
 David MacMurray
+
+## Disclaimer
+This application is not for commercial use, it is a project for educational purposes only
